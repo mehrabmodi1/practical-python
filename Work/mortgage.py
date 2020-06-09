@@ -8,13 +8,16 @@ rate = 0.05
 payment = 2684.11
 total_paid = 0.0
 month_n = 0
-
+ex_pay_start_m = 60;
+ex_pay_end_m = 108;
+ex_pay_am = 1000;
 
 while principal > 0:
-    if month_n < 13:
-        payment_i = payment + 1000;
+   
+    if month_n >= ex_pay_start_m and month_n <= ex_pay_end_m:
+        payment_i = payment + ex_pay_am;
     else:
-        paymenti = payment;
+        payment_i = payment;
         
     principal = principal * (1+rate/12) - payment_i;
     total_paid = total_paid + payment
