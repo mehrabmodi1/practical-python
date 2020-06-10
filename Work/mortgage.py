@@ -27,7 +27,8 @@ while principal > 0:
         
     principal = new_princ - payment_i;
     total_paid = total_paid + payment_i
-    print([principal, total_paid])
+    fstring = f'principal: {round(principal, 2)}, total paid: {round(total_paid, 2)}'
+    print(fstring)
     month_n = month_n + 1;
     
     
