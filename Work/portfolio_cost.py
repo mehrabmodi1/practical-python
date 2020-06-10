@@ -6,8 +6,9 @@ Created on Wed Jun 10 10:39:30 2020
 
 """
 
-def portfolio_cost(filename):
 
+def portfolio_cost(filename):
+    print('Hello')
     tot_cost = 0
     fpath = 'Data/' + filename
    
@@ -20,8 +21,19 @@ def portfolio_cost(filename):
                 continue
             
             data = line.split(',')
-            n_shares = float(data[1])
-            price = float(data[2])
+            
+            try:
+                n_shares = float(data[1])
+            except: 
+                print('could not read current n shares, skipping row ', line_n)
+                continue
+            
+            try:
+                price = float(data[2])
+            except: 
+                print('could not read current price, skipping row ', line_n)
+                continue
+                
             curr_cost = n_shares*price
             tot_cost = tot_cost + curr_cost
             
@@ -29,6 +41,6 @@ def portfolio_cost(filename):
             
     return tot_cost
 
-tot_cost = portfolio_cost('portfolio.csv')            
-print('total cost:', tot_cost)
+#tot_cost = portfolio_cost('portfolio.csv')            
+#print('total cost:', tot_cost)
     
