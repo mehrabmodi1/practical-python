@@ -8,19 +8,21 @@ Created on Wed Jun 10 10:39:30 2020
 
 
 def portfolio_cost(filename):
+    import csv
     print('Hello')
     tot_cost = 0
     fpath = 'Data/' + filename
    
     with open(fpath, 'rt') as file:
+        lines = csv.reader(file)
         line_n = 1;
-        for line in file:
+        for line in lines:
             #skipping header row
             if line_n == 1:
                 line_n = line_n + 1
                 continue
             
-            data = line.split(',')
+            data = line
             
             try:
                 n_shares = float(data[1])
